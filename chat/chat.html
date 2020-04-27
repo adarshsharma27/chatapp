@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Be+Vietnam" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   
+    <title>Search bar</title>
+    <style>
+         *{
+    padding: 0px;
+    margin: 0;
+    box-sizing: border-box;
+    font-family:'Be Vietnam',sans-serif;
+   
+    line-height: 1rem;
+  }
+  body{
+    background-color: #F4F5FF;
+    width: 100%;
+    height: 100vh;
+    background-image: url(images/bg-intro-desktop.png);
+  }
+  section{
+      width:100%;
+      position: fixed;
+    bottom:10px;
+    left: 0;
+    display: flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    
+  }
+        input{
+            width:1250px;
+            height:55px;
+            background-color: #ffffff;
+            padding: 1rem;
+            border:1px solid #ffffff;
+            border-radius:5rem;
+            margin: 0px 0.3rem;
+            outline: none;
+            color:hsl(229, 6%, 65%);
+            font-size: 1.1rem;
+            caret-color:  hsl(34, 97%, 64%);
+           position: relative;
+        }
+        ::placeholder{
+          font-weight: 400;
+          color:hsl(229, 6%, 65%);
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+        }
+       
+  .ps{
+      max-width:max-content;
+      height:50px;
+      background-color:#969df5;
+      color:#ffff;
+      padding: 1rem;
+      font-size: 1.2rem;
+      margin: 1.5rem 1.5rem;
+      border-radius: 5px;
+    
+  }
+ 
+  .fa-paper-plane-o{
+  
+            text-align: center;
+           padding: 0.9rem;
+            border-radius: 5rem;
+            color:#ffffff;
+            background-color:#7781FF;
+            font-size: 1.7rem;
+            right: 0;
+            top: 0;
+            border-radius: 5rem;
+            cursor: pointer;
+            transform: rotate(60deg);
+        }
+        .fa:hover{
+          transition: all 0.5s ease;
+          background-color: hsl(34, 97%, 64%);
+          transform: rotate(0deg);          
+        }
+        /* mobile */
+
+        @media(max-width:370px)
+        {
+          section{
+            bottom: 3.5rem;
+          }
+        }
+    </style>
+</head>
+<body>
+  
+<p id="show"></p>
+
+    <section>
+    
+      <input type="text" placeholder="Type a message" id="message" autofocus="on"> 
+      <main>
+    <i class="fa fa-paper-plane-o fa-2x"onclick="send()" aria-hidden="true"></i>
+  </main>
+</section>
+
+    <script>
+         const send=()=>{
+            
+             let mss=document.getElementById("message"); 
+             if(mss.value==""){
+               alert("Please enter message");
+             }
+             else{
+               let shows=document.getElementById("show");
+                let par = document.createElement("p");
+                par.innerHTML=mss.value;
+                par.classList.add("ps");
+               shows.appendChild(par);
+              
+                mss.value="";
+             }  
+         }
+    </script>
+   
+</body>
+</html>
